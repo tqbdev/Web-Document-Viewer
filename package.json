@@ -8,22 +8,21 @@
         "github": "",
         "twitter": ""
     },
-    "contributors": [
-        {
-            "name": "TqbDev",
-            "url": "https://github.com/tqbdev"
-        }
-    ],
+    "contributors": [{
+        "name": "TqbDev",
+        "url": "https://github.com/tqbdev"
+    }],
     "homepage": "https://github.com/tqbdev",
     "copyright": "TqbDev",
     "license": "MIT",
     "scripts": {
         "ng": "ng",
-        "start": "ng serve",
+        "start": "node server.js",
         "build": "ng build --prod",
         "test": "ng test",
         "lint": "ng lint",
-        "e2e": "ng e2e"
+        "e2e": "ng e2e",
+        "postinstall": "ng build --aot -prod"
     },
     "private": true,
     "dependencies": {
@@ -51,6 +50,7 @@
         "bootstrap": "^4.1.2",
         "chart.js": "2.7.2",
         "core-js": "2.5.7",
+        "express": "^4.16.4",
         "flag-icon-css": "3.0.0",
         "font-awesome": "^4.7.0",
         "moment": "2.22.2",
@@ -65,12 +65,14 @@
         "ngx-quill": "^3.2.0",
         "ngx-toastr": "^8.10.0",
         "ngx-webstorage": "^2.0.1",
+        "path": "^0.12.7",
         "reselect": "^3.0.1",
         "rxjs": "6.2.1",
         "rxjs-compat": "6.2.1",
         "simple-line-icons": "^2.4.1",
         "spinkit": "^1.2.5",
         "ts-helpers": "1.1.2",
+        "typescript": "2.7.2",
         "zone.js": "0.8.26"
     },
     "devDependencies": {
@@ -82,6 +84,7 @@
         "@types/jasminewd2": "^2.0.3",
         "@types/node": "^10.3.4",
         "codelyzer": "^4.4.2",
+        "enhanced-resolve": "^3.3.0",
         "jasmine-core": "^3.1.0",
         "jasmine-spec-reporter": "^4.2.1",
         "karma": "^2.0.3",
