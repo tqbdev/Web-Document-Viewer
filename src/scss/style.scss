@@ -1,0 +1,11 @@
+// If you want to override variables do it here
+@import "variables";
+
+// If you want to add something do it here
+@import "custom";
+
+// Import toast scss
+@import '~ngx-toastr/toastr.css';
+
+// Import ng select
+@import "~@ng-select/ng-select/themes/default.theme.css";
