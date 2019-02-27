@@ -5,14 +5,16 @@ import { RouterModule, Routes } from '@angular/router';
 import { PdfViewerModule } from 'ng2-pdf-viewer';
 
 import { SbDocument } from './document';
+import { SbPipesModule } from '@sb-shared/pipes/pipe.module';
 
-const routes: Routes = [{ path: '', component: SbDocument }];
+const routes: Routes = [{ path: ':fileName', component: SbDocument }];
 @NgModule({
     imports: [
         CommonModule,
         RouterModule.forChild(routes),
         TranslateModule.forChild(),
-        PdfViewerModule
+        PdfViewerModule,
+        SbPipesModule
     ],
     declarations: [SbDocument],
     exports: []
