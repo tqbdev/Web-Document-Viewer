@@ -3,6 +3,9 @@ import { ActivatedRoute } from '@angular/router';
 
 const googleDocs = 'https://docs.google.com/gview?embedded=true&url=';
 
+import * as ext from 'ext-name';
+import * as _ from 'lodash';
+
 @Component({
     selector: 'sb-document',
     templateUrl: './document.html',
@@ -10,12 +13,20 @@ const googleDocs = 'https://docs.google.com/gview?embedded=true&url=';
 })
 export class SbDocument implements OnInit {
     fileURL: any;
+    isPdf: any = true;
     constructor(private activatedRoute: ActivatedRoute) {}
 
     ngOnInit() {
         const fileName = this.activatedRoute.params['value'].fileName;
-        this.fileURL = `${googleDocs}${
-            window.location.origin
-        }/assets/${fileName}`;
+        const extName = _.get(ext(fileName), '[0].ext');
+        this.isPdf = extName === 'pdf';
+
+        if (!this.isPdf) {
+            this.fileURL = `${googleDocs}${
+                window.location.origin
+            }/assets/${fileName}`;
+        } else {
+            this.fileURL = `/assets/${fileName}`;
+        }
     }
 }
