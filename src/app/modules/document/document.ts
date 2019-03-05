@@ -5,6 +5,7 @@ const googleDocs = 'https://docs.google.com/gview?embedded=true&url=';
 
 import * as ext from 'ext-name';
 import * as _ from 'lodash';
+import { AppConstants } from '../../app.constant';
 
 @Component({
     selector: 'sb-document',
@@ -22,9 +23,15 @@ export class SbDocument implements OnInit {
         this.isPdf = extName === 'pdf';
 
         if (!this.isPdf) {
-            this.fileURL = `${googleDocs}${
-                window.location.origin
-            }/assets/${fileName}`;
+            if (AppConstants.FILE_ENDPOINT) {
+                this.fileURL = `${googleDocs}${
+                    AppConstants.FILE_ENDPOINT
+                }${fileName}`;
+            } else {
+                this.fileURL = `${googleDocs}${
+                    window.location.origin
+                }/assets/${fileName}`;
+            }
         } else {
             this.fileURL = `/assets/${fileName}`;
         }

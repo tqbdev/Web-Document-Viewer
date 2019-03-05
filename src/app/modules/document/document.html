@@ -1,4 +1,5 @@
 <div class="container">
-    <!-- <pdf-viewer [src]="pdfSrc" [autoresize]="true" [original-size]="false" [render-text]="true" style="display: block;"></pdf-viewer> -->
-    <iframe class="sb-document" *ngIf="fileURL" [src]="fileURL | sbTrustURL"></iframe>
+    <pdf-viewer *ngIf="fileURL && isPdf" [src]="fileURL" [autoresize]="true" [original-size]="false" [render-text]="true"
+        style="display: block;"></pdf-viewer>
+    <iframe class="sb-document" *ngIf="fileURL && !isPdf" [src]="fileURL | sbTrustURL"></iframe>
 </div>
