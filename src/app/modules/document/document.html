@@ -1,4 +1,7 @@
 <div class="container">
-    <!-- <pdf-viewer [src]="pdfSrc" [autoresize]="true" [original-size]="false" [render-text]="true" style="display: block;"></pdf-viewer> -->
-    <iframe class="sb-document" src="https://docs.google.com/gview?url=https://dornsife.usc.edu/assets/sites/298/docs/ir211wk12sample.xls&embedded=true"></iframe>
+    <ng2-pdfjs-viewer *ngIf="fileURL && isPdf" [pdfSrc]="fileURL" style="display: block; height: 100vh">
+    </ng2-pdfjs-viewer>
+    <!-- <pdf-viewer *ngIf="fileURL && isPdf" [src]="fileURL" [autoresize]="true" [original-size]="true" [render-text]="true"
+        style="display: block;"></pdf-viewer> -->
+    <iframe class="sb-document" *ngIf="fileURL && !isPdf" [src]="fileURL | sbTrustURL"></iframe>
 </div>
