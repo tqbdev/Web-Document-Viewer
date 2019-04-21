@@ -18,22 +18,26 @@ export class SbDocument implements OnInit {
     constructor(private activatedRoute: ActivatedRoute) {}
 
     ngOnInit() {
-        const fileName = this.activatedRoute.params['value'].fileName;
+        // console.log(this.activatedRoute.queryParams['value']);
+        const fileName = this.activatedRoute.queryParams['value'].file;
         const extName = _.get(ext(fileName), '[0].ext');
         this.isPdf = extName === 'pdf';
-
         if (!this.isPdf) {
-            if (AppConstants.FILE_ENDPOINT) {
-                this.fileURL = `${googleDocs}${
-                    AppConstants.FILE_ENDPOINT
-                }${fileName}`;
-            } else {
-                this.fileURL = `${googleDocs}${
-                    window.location.origin
-                }/assets/${fileName}`;
-            }
+            // if (AppConstants.FILE_ENDPOINT) {
+            //     this.fileURL = `${googleDocs}${
+            //         AppConstants.FILE_ENDPOINT
+            //     }${fileName}`;
+            // } else {
+            //     this.fileURL = `${googleDocs}${
+            //         window.location.origin
+            //     }/assets/${fileName}`;
+            // }
         } else {
-            this.fileURL = `/assets/${fileName}`;
+            if (AppConstants.FILE_ENDPOINT) {
+                this.fileURL = AppConstants.FILE_ENDPOINT + fileName;
+            } else {
+                this.fileURL = `/assets/${fileName}`;
+            }
         }
     }
 }

@@ -5,5 +5,8 @@ import { Component } from '@angular/core';
     template: '<router-outlet></router-outlet>'
 })
 export class AppComponent {
-    constructor() {}
+    constructor() {
+        // (<any>window).pdfWorkerSrc = 'assets/pdfjs/build/pdf.worker.js';
+        (<any>window).pdfWorkerSrc = 'assets/build/pdf.worker.js';
+    }
 }

@@ -8,7 +8,7 @@ import { PdfJsViewerModule } from 'ng2-pdfjs-viewer';
 import { SbDocument } from './document';
 import { SbPipesModule } from '@sb-shared/pipes/pipe.module';
 
-const routes: Routes = [{ path: ':fileName', component: SbDocument }];
+const routes: Routes = [{ path: '', component: SbDocument }];
 @NgModule({
     imports: [
         CommonModule,
