@@ -10494,6 +10494,7 @@ function () {
         }
 
         onePageRenderedCapability.promise.then(function () {
+          debugger;
           if (pdfDocument.loadingParams['disableAutoFetch']) {
             pagesCapability.resolve();
             return;
@@ -13832,10 +13833,10 @@ function getDefaultPreferences() {
       "textLayerMode": 1,
       "useOnlyCssZoom": false,
       "viewOnLoad": 0,
-      "disableAutoFetch": false,
+      "disableAutoFetch": true,
       "disableFontFace": false,
       "disableRange": false,
-      "disableStream": false
+      "disableStream": true
     });
   }
 
