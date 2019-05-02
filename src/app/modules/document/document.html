@@ -1,7 +1,7 @@
 <div class="container">
-    <!-- <ng2-pdfjs-viewer *ngIf="fileURL && isPdf" [pdfSrc]="fileURL" style="display: block; height: 100vh">
-    </ng2-pdfjs-viewer> -->
-    <pdf-viewer *ngIf="fileURL && isPdf" [src]="fileURL" [autoresize]="true" [original-size]="false"
-        [render-text]="true" style="display: block;"></pdf-viewer>
+    <ng2-pdfjs-viewer #pdfViewer style="display: block; height: 100vh">
+    </ng2-pdfjs-viewer>
+    <!-- <pdf-viewer *ngIf="fileURL && isPdf" [src]="fileURL" [autoresize]="true" [original-size]="false"
+        [render-text]="true" style="display: block;"></pdf-viewer> -->
     <iframe class="sb-document" *ngIf="fileURL && !isPdf" [src]="fileURL | sbTrustURL"></iframe>
 </div>
